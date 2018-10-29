@@ -6,25 +6,31 @@
   "license": "MIT",
   "private": true,
   "scripts": {},
+  "main": "lib/index.js",
   "engines": {
     "node": ">=8"
+  },
+  "scripts": {
+    "start": "node lib/index.js"
   },
   "_moduleAliases": {
     "@root": ".",
     "@lib": "lib",
-    "@playground": "lib/playground.js",
-    "@utils": "lib/utils"
+    "@playground": "playground.js",
+    "@runner": "lib/playground-runner.js"
   },
   "dependencies": {
     "hnode": "github:hemisphere-project/stratum-hnode"
   },
   "devDependencies": {
+    "chokidar": "^2.0.4",
     "eslint": "^5.7.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
+    "invalidate-module": "^1.0.0",
     "module-alias": "^2.1.0"
   }
 }
