@@ -15,10 +15,31 @@ $ npm install
 ## Usage
 
 ```sh
-$ node index.js
+$ npm start
 ```
 
-###### Network configuration
+###### `playground.js` exposed parameters
+```js
+module.exports.raf = ({
+  frameCount,  // How many frames from the start of hnode
+  length,      // Length of the stripled controlled by hnode
+  clear,       // clear(): function which clears the stripled when called
+  light        // light(i, [r,g,b]) lights up pixel #i with the color rgb
+}) => {
+  …
+}
+```
+###### `playground.js` options
+```js
+module.exports.options = {
+  title: 'hnode-playground', // Title of the node process
+  debug: true,               // Enable debug logging to stdout
+  fps: 60,                   // hnode frameRate
+  autoClear: true            // If set to false, you'll have to manually call clear()
+}
+```
+
+## Network configuration
 To connect to [`hnode`](https://github.com/Hemisphere-Project/stratum-hnode/) via UDP, use the following IPV4 config:
 ```
 IP Address: 192.168.0.200
@@ -26,27 +47,6 @@ Subnet Mask: 255.255.255.0
 Router: 192.168.0.1
 ```
 
-###### Playground options
-```js
-require('@playground')({
-  title: 'hnode-playground', // Title of the node process
-  debug: true,               // Enable debug logging to stdout
-  fps: 60,                   // hnode frameRate
-  autoClear: true            // If set to false, you'll have to manually call clear()
-}, ({ frameCount, length, clear, light }) => {
-  …
-})
-```
-
-###### `@utils/keyboard`
-```js
-require('@utils/keyboard')(key => {
-  console.log(key)
-
-  if (key.name === 'up') console.log('↑')
-  if (key.name === 'down') console.log('↓')
-})
-```
 
 ## License
 [MIT.](https://tldrlegal.com/license/mit-license)
